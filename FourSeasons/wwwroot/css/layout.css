@@ -1,0 +1,23 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333333;
+}
+
+.body-all-container {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #333333;
+}
+
+.body-content-container {
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #333333;
+}
+
+.content {
+    width: inherit;
+    position: relative;
+}

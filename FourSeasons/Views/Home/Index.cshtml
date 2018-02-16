@@ -1,0 +1,138 @@
+﻿@model List<News>
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<link rel="stylesheet" href="~/css/home.css" />
+<link rel="stylesheet" href="~/css/carousel.css" />
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/images/banner1.jpg" class="img-responsive" />
+            <div class="carousel-caption">
+                <p>
+                    Добро пожаловать на веб-сайт отеля FourSeasons
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner2.jpg" class="img-responsive" />
+            <div class="carousel-caption">
+                <p>
+                    Люкс номера с видом на море по приятой цене
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner3.jpg" class="img-responsive" />
+            <div class="carousel-caption">
+                <p>
+                    Огромные бассейны, SPA, русская баня и тайский массаж
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner4.jpg" class="img-responsive" />
+            <div class="carousel-caption">
+                <p>
+                    Профессиональный бар и авторская кухня
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="content">
+    <div class="content-home">
+        @{ string zero = ""; }
+
+        @{ int n = 4;
+
+            if (Model.Count < n)
+            { n = Model.Count; }
+        }
+
+        @for (int i = 0; i < n; i++)
+        {
+            if (Model.ElementAt(i).Date.Month < 10)
+            { zero = "0"; }
+            else
+            { zero = ""; }
+
+
+            if (i % 2 == 0)
+            {
+                <div class="news-container-left">
+                    <div class="news-img-container-left">
+                        <img src="@Url.Content(Model.ElementAt(i).ImgLink)" />
+                    </div>
+
+                    <div class="news-content-container-left">
+                        <div class="news-content">
+                            <div class="news-title"><p>@Model.ElementAt(i).Header</p></div>
+                            <div class="news-text">
+                                <p>
+                                    @Model.ElementAt(i).Content
+                                </p>
+                            </div>
+                            <div class="news-date-left">
+                                <p>@Model.ElementAt(i).Date.Day.@zero@Model.ElementAt(i).Date.Month.@Model.ElementAt(i).Date.Year</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vertical-board-left">
+                    </div>
+
+                </div>
+            }
+            else
+            {
+                <div class="news-container-right">
+
+                    <div class="vertical-board-right">
+                    </div>
+
+                    <div class="news-content-container-right">
+                        <div class="news-content">
+                            <div class="news-title"><p>@Model.ElementAt(i).Header</p></div>
+                            <div class="news-text">
+                                <p>
+                                    @Model.ElementAt(i).Content
+                                </p>
+                            </div>
+                            <div class="news-date-right">
+                                <p>@Model.ElementAt(i).Date.Day.@zero@Model.ElementAt(i).Date.Month.@Model.ElementAt(i).Date.Year</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-img-container-right">
+                        <img src="@Url.Content(Model.ElementAt(i).ImgLink)" />
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="newsall-link-container">
+            <a class="newsall-link" asp-area="" asp-controller="Home" asp-action="NewsArchive">Все новости</a>
+        </div>
+
+    </div>
+</div>
+

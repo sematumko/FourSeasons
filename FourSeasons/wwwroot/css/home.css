@@ -1,0 +1,143 @@
+.content-home {
+    height: auto;
+    width: 1128px;
+    margin: 50px 36px;
+    position: relative;
+}
+
+.news-container-left, .news-container-right {
+    height: 200px;
+    width: 1000px;
+    margin: 80px 0;
+    position: relative;
+}
+
+.news-container-right {
+    margin-left: 128px;
+}
+
+.vertical-board-right, .vertical-board-left {
+    height: inherit;
+    width: 10px;
+    position: absolute;
+    top: 0;
+}
+
+.vertical-board-right {
+    left: 0;
+    background-color: #349D52;
+}
+
+.vertical-board-left {
+    right: 0;
+    background-color: #e6e2df;
+}
+
+.news-img-container-right, .news-img-container-left {
+    height: inherit;
+    width: 350px;
+}
+
+.news-img-container-left {
+    float: left;
+}
+
+.news-img-container-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.news-content-container-left, .news-content-container-right {
+    height: inherit;
+    width: 640px;
+    position: relative;
+}
+
+.news-content-container-left {
+    margin: 0 350px;
+    background-color: #349D52; /*#e6e2df; */
+}
+
+.news-content-container-right {
+    float: left;
+    margin: 0 10px;
+    background-color: #e6e2df;
+}
+
+.news-content {
+    position: absolute;
+    height: 90%;
+    width: 94%;
+    top: 5%;
+    left: 3%;
+}
+
+.news-title p {
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333333;
+    font-size: 18px;
+}
+
+.news-text p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.news-content-container-left > .news-content > .news-text > p,
+.news-content-container-left > .news-content > .news-title > p {
+    color: #ffffff;
+}
+
+.news-content-container-right > .news-content > .news-text > p,
+.news-content-container-right > .news-content > .news-title > p {
+    color: #333333;
+}
+
+.news-date-left, .news-date-right {
+    position: absolute;
+    top: 0px;
+    font-size: 12px;
+}
+
+.news-date-left {
+    right: 0px;
+    color: #ffffff;
+}
+
+.news-date-right {
+    left: 0px;
+    color: #333333;
+}
+
+
+.newsall-link-container, .backhome-link-container {
+    position: relative;
+}
+
+.newsall-link-container > a:link, .newsall-link-container > a:visited {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.newsall-link-container > a:hover {
+    color: #349D52;
+}
+
+.backhome-link-container > a:link, .backhome-link-container > a:visited {
+    position: absolute;
+    left: 0;
+    bottom: 25px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.backhome-link-container > a:hover {
+    color: #349D52;
+}

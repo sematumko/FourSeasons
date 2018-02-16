@@ -1,0 +1,59 @@
+.menu {
+    width: 1200px;
+    height: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #349D52;
+}
+
+.menu-container {
+    height: inherit; 
+}
+
+.menu-hotelname-container {
+    height: inherit;
+    width: auto;
+    float: left;
+    background-color: #333333;
+}
+
+.menu-hotelname {
+    height: inherit;
+    padding: 12px 15px;
+    width: auto;
+}
+
+.menu-hotelname > a:link, .menu-hotelname > a:visited {
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.menu-hotelname > a:hover {
+    color: #349D52;
+}
+
+.menu-list-container {
+    height: inherit;
+    margin-left: 135px;
+}
+
+.menu-list {
+    list-style-type: none;
+    padding: 14px 15px;
+}
+
+.menu-list > li {
+    float: left;
+    padding-right: 20px;
+}
+
+.menu-list > li a:link, .menu-list > li a:visited {
+    font-size: 16px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.menu-list > li a:hover {
+    color: #333333;
+}

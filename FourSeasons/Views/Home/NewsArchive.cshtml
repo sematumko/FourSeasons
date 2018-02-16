@@ -1,0 +1,78 @@
+﻿@model List<News>
+@{
+    ViewData["Title"] = "Архив новостей";
+}
+
+<link rel="stylesheet" href="~/css/home.css" />
+
+<div class="content">
+    <div class="content-home">
+
+        <div class="backhome-link-container">
+            <a asp-area="" asp-controller="Home" asp-action="Index">Назад</a>
+        </div>
+
+        @{ string zero = ""; }
+
+        @for (int i = 0; i < Model.Count; i++)
+    {
+        if (Model.ElementAt(i).Date.Month < 10)
+        { zero = "0"; }
+        else
+        { zero = ""; }
+
+        if (i % 2 == 0)
+        {
+            <div class="news-container-left">
+                <div class="news-img-container-left">
+                    <img src="@Url.Content(Model.ElementAt(i).ImgLink)" />
+                </div>
+
+                <div class="news-content-container-left">
+                    <div class="news-content">
+                        <div class="news-title"><p>@Model.ElementAt(i).Header</p></div>
+                        <div class="news-text">
+                            <p>
+                                @Model.ElementAt(i).Content
+                            </p>
+                        </div>
+                        <div class="news-date-left">
+                            <p>@Model.ElementAt(i).Date.Day.@zero@Model.ElementAt(i).Date.Month.@Model.ElementAt(i).Date.Year</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vertical-board-left">
+                </div>
+
+            </div>
+    }
+    else
+    {
+        <div class="news-container-right">
+
+            <div class="vertical-board-right">
+            </div>
+
+            <div class="news-content-container-right">
+                <div class="news-content">
+                    <div class="news-title"><p>@Model.ElementAt(i).Header</p></div>
+                    <div class="news-text">
+                        <p>
+                            @Model.ElementAt(i).Content
+                        </p>
+                    </div>
+                    <div class="news-date-right">
+                        <p>@Model.ElementAt(i).Date.Day.@zero@Model.ElementAt(i).Date.Month.@Model.ElementAt(i).Date.Year</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-img-container-right">
+                <img src="@Url.Content(Model.ElementAt(i).ImgLink)" />
+            </div>
+        </div>
+}
+}
+    </div>
+</div>
