@@ -132,7 +132,7 @@
 .backhome-link-container > a:link, .backhome-link-container > a:visited {
     position: absolute;
     left: 0;
-    bottom: 25px;
+    top: 65px;
     color: #ffffff;
     text-decoration: none;
     font-size: 14px;
@@ -140,4 +140,14 @@
 
 .backhome-link-container > a:hover {
     color: #349D52;
+}
+
+.newsarchive-title {
+    width: 100%;
+}
+
+.newsarchive-title > p {
+    text-align: center;
+    font-size: 28px;
+    color: #ffffff;
 }

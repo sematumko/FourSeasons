@@ -1,0 +1,19 @@
+﻿@model List<News>
+@{
+    ViewData["Title"] = "Раздел администратора";
+}
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/admin.css" />
+
+<div class="content">
+    <div class="content-admin">
+        <div class="admin-links">
+            <a asp-area="" asp-controller="NewsAdmin" asp-action="Index">Новости</a><br />
+            <a asp-area="" asp-controller="Home" asp-action="Index">Главная</a><br />
+            <a asp-area="" asp-controller="Home" asp-action="Index">Главная</a><br />
+        </div>
+    </div>
+</div>

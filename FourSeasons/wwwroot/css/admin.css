@@ -1,0 +1,17 @@
+﻿.content-admin {
+    width: 1200px;
+}
+
+.admin-links {
+    padding: 50px 50px;
+}
+
+.admin-links > a:visited, .admin-links > a:link {
+    font-size: 28px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.admin-links > a:hover {
+    color: #349D52;
+}

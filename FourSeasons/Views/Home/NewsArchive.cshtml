@@ -12,10 +12,14 @@
             <a asp-area="" asp-controller="Home" asp-action="Index">Назад</a>
         </div>
 
+        <div class="newsarchive-title">
+            <p>Архив новостей</p>
+        </div>
+
         @{ string zero = ""; }
 
         @for (int i = 0; i < Model.Count; i++)
-    {
+        {
         if (Model.ElementAt(i).Date.Month < 10)
         { zero = "0"; }
         else

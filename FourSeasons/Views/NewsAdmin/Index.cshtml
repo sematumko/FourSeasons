@@ -1,0 +1,53 @@
+﻿@model List<News>
+@{
+    ViewData["Title"] = "Новости";
+}
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/admin-news.css" />
+
+<div class="content">
+    <div class="content-admin-news">
+
+        <div class="news-add">
+            <p>Добавить новость</p>
+            @using (Html.BeginForm("Add", "NewsAdmin", FormMethod.Post))
+            {
+                
+                <input type="text" name="_header" placeholder="Заголовок" /><br />
+                <textarea name="_content" placeholder="Текст"></textarea><br />
+                <input type="text" name="_imgLink" placeholder="Полное название файла изображения"/><br />
+
+                <input type="submit" value="Добавить" />
+            }
+        </div>
+        
+
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="news-container">
+
+                @using (Html.BeginForm("Update", "NewsAdmin", FormMethod.Post))
+                {
+                    @Html.HiddenFor(Model => Model.ElementAt(i).Id)<br />
+                    @Html.EditorFor(Model => Model.ElementAt(i).Header)<br />
+                 
+                    @Html.EditorFor(Model => Model.ElementAt(i).Content)<br />
+                    @Html.EditorFor(Model => Model.ElementAt(i).ImgLink)<br />
+                    @Html.HiddenFor(Model => Model.ElementAt(i).Date)<br />
+
+                    <div class="news-upd-btn-container"><input type="submit" value="Сохранить изменения" /></div>
+                    <p>&#160</p>
+                }
+
+                @using (Html.BeginForm("Delete", "NewsAdmin", FormMethod.Post))
+                {
+                    @Html.HiddenFor(Model => Model.ElementAt(i).Id)
+                    <div class="news-del-btn-container"><input type="submit" id="delete-submit" value="X" /></div>
+                }
+            </div>
+        }
+    </div>
+</div>
