@@ -8,21 +8,22 @@ using Microsoft.EntityFrameworkCore;
 using FourSeasons.Models;
 using FourSeasons.dbContexts;
 
-namespace FourSeasons.Controllers.Guest
+namespace FourSeasons.Controllers.Admin
 {
-    public class NewsController : Controller
+    public class GalleryAdminController : Controller
     {
         private readonly FourSeasonsContext _context;
 
-        public NewsController(FourSeasonsContext context)
+        public GalleryAdminController(FourSeasonsContext context)
         {
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.NewsSet.ToListAsync());
+            return View();
         }
 
+        
     }
 }

@@ -1,0 +1,38 @@
+﻿@model List<GalleryPhoto>
+@{
+    ViewData["Title"] = "Галерея";
+}
+
+<link rel="stylesheet" href="~/css/gallery.css" />
+
+
+<div class="content">
+    <div class="content-gallery">
+        <div class="gallery-title">
+            <p>Галерея</p>
+        </div>
+
+        <div class="table-container">
+            <table border="0">
+                @{ int n = 2;}
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    if (i % n == 0)
+                    {
+                        <tr align="center" valign="center">
+                        @for (int j = 0; j < n; j++)
+                        {
+                            if (i + j < Model.Count)
+                            {
+                                <td>
+                                    <img class="image" src="@Url.Content(Model.ElementAt(i + j).ImgLink)" />
+                                </td>
+                            }
+                        }
+                        </tr>
+                     }
+                }
+            </table>
+        </div>
+    </div>
+    </div>

@@ -14,22 +14,13 @@ namespace FourSeasons.dbContexts
         { }
 
         public DbSet<News> NewsSet { get; set; }
+        public DbSet<GalleryPhoto> GallerySet { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<News>().ToTable("News");
+            modelBuilder.Entity<GalleryPhoto>().ToTable("GalleryPhoto");
         }
-
-        /*public List<News> getAll()
-        {
-            List<News> nl = new List<News>();
-
-            foreach (News element in NewsSet)
-                nl.Add(element);
-
-            return nl;
-        }
-        */
 
     }
 

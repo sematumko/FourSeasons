@@ -33,22 +33,13 @@ namespace FourSeasons.Controllers.Guest
 
             return newsList;
         }
-
-        public void AddNews()
-        {
-            _context.NewsSet.Add(new News { Header = "Новость", Content = "Контент", Date = DateTime.Now, ImgLink = "~/images/news/banner2.jpg" });
-            _context.SaveChanges();
-        }
-
         
         public IActionResult NewsArchive()
         {
-
             return View(getNews());
         }
 
         
-
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
