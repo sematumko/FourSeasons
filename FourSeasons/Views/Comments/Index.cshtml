@@ -1,0 +1,135 @@
+﻿@model List<Comment>
+@{
+    ViewData["Title"] = "Отзывы";
+}
+
+<link rel="stylesheet" href="~/css/comments.css" />
+<link rel="stylesheet" href="~/css/carousel.css" />
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/images/banner1.jpg" class="img-responsive" />
+            <div class="carousel-caption">
+                <p>
+                    Добро пожаловать на веб-сайт отеля FourSeasons
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner2.jpg" class="img-responsive" />
+            <div class="carousel-caption">
+                <p>
+                    Люкс номера с видом на море по приятой цене
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner3.jpg" class="img-responsive" />
+            <div class="carousel-caption">
+                <p>
+                    Огромные бассейны, SPA, русская баня и тайский массаж
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner4.jpg" class="img-responsive" />
+            <div class="carousel-caption">
+                <p>
+                    Профессиональный бар и авторская кухня
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="content">
+    <div class="content-comments">
+
+        <div class="comments-title">
+            <p>Отзывы</p>
+        </div>
+
+        <div class="comments-textmessage">
+            <p>Уважаемые гости нашего отеля, нам небезразлично ваше мнение! Здесь вы можете оставить ваши отзывы, замечания, пожелания и предложения.
+            Мы стараемся для вас и хотим стать ещё лучше. Мы благодарны вам за честную и обоснованную критику.</p>
+        </div>
+
+        <div class="add-form-container">
+            <div class="comments-add">
+                <p>Оставьте свой отзыв</p>
+                @using (Html.BeginForm("Create", "Comments", FormMethod.Post))
+                {
+
+                    <input type="text" name="_authorName" placeholder=" Ваше имя" /><br />
+                    <input type="text" name="_authorEmail" placeholder=" Email" /><br />
+                    <textarea name="_text" placeholder=" Напишите ваш отзыв здесь"></textarea><br />
+
+                    <input type="submit" value="Добавить" />
+                }
+            </div>
+        </div>
+
+        <div class="comments-list-container">
+            <div class="comments-list">
+                @for (int i = Model.Count - 1; i >= 0; i--)
+            {
+                if (i % 2 == 0)
+                {
+                    <div class="comment-container-odd">
+                        <div class="comment">
+                            @if(Model.ElementAt(i).AuthorName == "Admin")
+                            {
+                                <div class="title-admin"><p>@Model.ElementAt(i).AuthorName, @Model.ElementAt(i).Date</p></div>
+                            }
+                            else
+                            {
+                                <div class="title"><p>@Model.ElementAt(i).AuthorName, @Model.ElementAt(i).Date</p></div>
+                            }
+                            
+                            <div class="text"><p>@Model.ElementAt(i).Text</p></div>
+                        </div>
+                    </div>
+
+                }
+                else
+                {
+                    <div class="comment-container-even">
+                        <div class="comment">
+                             @if(Model.ElementAt(i).AuthorName == "Admin")
+                            {
+                                <div class="title-admin"><p>@Model.ElementAt(i).AuthorName, @Model.ElementAt(i).Date</p></div>
+                            }
+                            else
+                            {
+                                <div class="title"><p>@Model.ElementAt(i).AuthorName, @Model.ElementAt(i).Date</p></div>
+                            }
+                            <div class="text"><p>@Model.ElementAt(i).Text</p></div>
+                        </div>
+                    </div>
+
+                }
+            }
+            </div>
+            
+
+        </div>
+
+
+
+    </div>
+</div>

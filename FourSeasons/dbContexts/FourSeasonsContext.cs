@@ -15,11 +15,13 @@ namespace FourSeasons.dbContexts
 
         public DbSet<News> NewsSet { get; set; }
         public DbSet<GalleryPhoto> GallerySet { get; set; }
+        public DbSet<Comment> CommentsSet { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<News>().ToTable("News");
             modelBuilder.Entity<GalleryPhoto>().ToTable("GalleryPhoto");
+            modelBuilder.Entity<Comment>().ToTable("Comments");
         }
 
     }

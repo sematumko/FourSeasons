@@ -19,11 +19,38 @@ namespace FourSeasons.Controllers.Admin
             _context = context;
         }
 
+        [Route("Admin/Gallery")]
         public IActionResult Index()
         {
-            return View();
+            return View(getGallery());
         }
 
-        
+        [HttpPost]
+        public ActionResult Delete(GalleryPhoto photo)
+        {
+            _context.GallerySet.Remove(_context.GallerySet.Find(photo.Id));
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Add(string _imgLink)
+        {
+            _context.GallerySet.Add(new GalleryPhoto { ImgLink = "~/images/gallery/" + _imgLink });
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        private List<GalleryPhoto> getGallery()
+        {
+            List<GalleryPhoto> galleryList = new List<GalleryPhoto>();
+
+            foreach (GalleryPhoto element in _context.GallerySet)
+                galleryList.Add(element);
+
+            return galleryList;
+        }
+
+
     }
 }

@@ -1,0 +1,70 @@
+﻿.content-admin-comments {
+    width: inherit;
+}
+
+.comments-container {
+    margin: 50px 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: #d9d5d5;
+    position: relative;
+}
+
+    .comments-container > form > input, .comments-container > form > textarea {
+        margin: 5px 20px;
+        width: 90%;
+    }
+
+    .comments-container > form > textarea {
+        height: 100px;
+        resize: none;
+    }
+
+    .comments-container > form > input[type=submit] {
+        width: 20%;
+        margin-left: 775px;
+        margin-bottom: 0px;
+    }
+
+.comments-del-btn-container {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+    .comments-del-btn-container > #delete-submit {
+        color: #d12121;
+        font-size: 16px;
+    }
+
+
+.comments-add {
+    margin: 50px 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #d9d5d5;
+    width: 50%;
+}
+
+    .comments-add > p {
+        text-align: center;
+        padding-top: 15px;
+        font-size: 18px
+    }
+
+    .comments-add > form > input, .comments-add > form > textarea {
+        margin: 5px 20px;
+        width: 90%;
+    }
+
+    .comments-add > form > textarea {
+        height: 200px;
+        resize: none;
+    }
+
+    .comments-add > form > input[type=submit] {
+        width: 30%;
+        margin-left: 380px;
+        margin-bottom: 10px;
+    }

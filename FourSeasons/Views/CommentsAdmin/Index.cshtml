@@ -1,0 +1,44 @@
+﻿@model List<Comment>
+@{
+    ViewData["Title"] = "Отзывы";
+}
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/admin-comments.css" />
+
+<div class="content">
+    <div class="content-admin-comments">
+
+        <div class="comments-add">
+            <p>Добавить отзыв</p>
+            @using (Html.BeginForm("Create", "CommentsAdmin", FormMethod.Post))
+            {            
+                <textarea name="_text" placeholder="Текст"></textarea><br />
+                <input type="submit" value="Добавить" />
+            }
+        </div>
+
+
+        @for (int i = Model.Count - 1; i >= 0; i--)
+        {
+        <div class="comments-container">
+
+            <p>Автор: @Model.ElementAt(i).AuthorName</p>
+            <p>Email: @Model.ElementAt(i).AuthorEmail</p>
+            <p>Текст: @Model.ElementAt(i).Text</p>
+            <p>Дата: @Model.ElementAt(i).Date</p>
+
+
+
+
+            @using (Html.BeginForm("Delete", "CommentsAdmin", FormMethod.Post))
+    {
+        @Html.HiddenFor(Model => Model.ElementAt(i).Id)
+        <div class="comments-del-btn-container"><input type="submit" id="delete-submit" value="X" /></div>
+}
+        </div>
+        }
+    </div>
+</div>

@@ -1,1 +1,53 @@
-﻿
+﻿@model List<GalleryPhoto>
+@{
+    ViewData["Title"] = "Галерея";
+}
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/admin-gallery.css" />
+
+<div class="content">
+    <div class="content-admin-gallery">
+        <div class="gallery-add">
+            <p>Добавить изображение</p>
+            @using (Html.BeginForm("Add", "GalleryAdmin", FormMethod.Post))
+            {
+                <input type="text" name="_imgLink" placeholder="Полное название файла изображения" /><br />
+
+            <input type="submit" value="Добавить" />
+            }
+        </div>
+
+        <div class="table-container">
+        <table border="0">
+            @{ int n = 4;}
+            @for (int i = 0; i < Model.Count; i++)
+            {
+            if (i % n == 0)
+            {
+                <tr>
+                    @for (int j = 0; j < n; j++)
+                    {
+                        if (i + j < Model.Count)
+                        {
+                            <td>
+                                <div class="gallery-container">
+                                    @using (Html.BeginForm("Delete", "GalleryAdmin", FormMethod.Post))
+                                    {
+                                        <img src="@Url.Content(Model.ElementAt(i + j).ImgLink)" /><br />
+                                        @Html.HiddenFor(Model => Model.ElementAt(i + j).Id)
+                                        <div class="gallery-del-btn-container"><input type="submit" id="delete-submit" value="X" /></div>
+                                    }
+                                </div>
+                            </td>
+                        }
+                    }
+                </tr>
+            }
+            }
+        </table>
+        </div>
+    </div>
+</div>
