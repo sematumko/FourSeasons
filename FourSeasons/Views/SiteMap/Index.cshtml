@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Карта сайта";
+}
+
+<link rel="stylesheet" href="~/css/sitemap.css" />
+
+<div class="content">
+    <div class="content-food">
+
+        <div class="food-title">
+            <p>Карта сайта</p>
+        </div>
+
+
+
+        <div class="food-list-container">
+
+            <div class="category-container">
+                <div class="parent">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                </div>
+
+                <div class="child">
+                    <a asp-area="" asp-controller="Home" asp-action="NewsArchive">Архив новостей</a>
+                </div>
+            </div>
+
+            <div class="category-container">
+                <div class="parent">
+                    <a asp-area="" asp-controller="" asp-action="" style="pointer-events: none;">Об отеле</a>
+                </div>
+
+                <div class="child">
+                    <a asp-area="" asp-controller="Gallery" asp-action="Index">Галерея</a><br />
+                    <a asp-area="" asp-controller="Comfort" asp-action="Index">Услуги и удобства</a><br />
+                    <a asp-area="" asp-controller="Contacts" asp-action="Index">Контакты</a><br />
+                    <a asp-area="" asp-controller="Comments" asp-action="Index">Отзывы</a>
+                </div>
+            </div>
+
+            <div class="category-container">
+                <div class="parent">
+                    <a asp-area="" asp-controller="" asp-action="" style="pointer-events: none;">Номера</a>
+                </div>
+
+                <div class="child">
+                    <a asp-area="" asp-controller="Rooms" asp-action="Index">Просмотр номеров</a><br />
+                    <a asp-area="" asp-controller="Booking" asp-action="Index">Бронирование</a>
+                </div>
+            </div>
+
+            <div class="category-container">
+                <div class="parent">
+                    <a asp-area="" asp-controller="Food" asp-action="Index">Питание</a>
+                </div>
+
+                <div class="category-container">
+                    <div class="parent">
+                        <a asp-area="" asp-controller="SiteMap" asp-action="Index">Карта сайта</a>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+</div>

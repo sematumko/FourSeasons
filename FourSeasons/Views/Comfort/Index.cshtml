@@ -1,0 +1,80 @@
+﻿@model List<Comfort>
+@{
+    ViewData["Title"] = "Услуги";
+}
+
+<link rel="stylesheet" href="~/css/comfort.css" />
+
+<div class="content">
+    <div class="content-comfort">
+
+        <div class="comfort-title">
+            <p>Наши услуги</p>
+        </div>
+        @{ string zero = ""; }
+
+
+        @for (int i = Model.Count - 1; i >= 0; i--)
+    {
+        if (Model.ElementAt(i).Date.Month < 10)
+        { zero = "0"; }
+        else
+        { zero = ""; }
+
+
+        if (i % 2 == 0)
+        {
+            <div class="comfort-container-left">
+                <div class="comfort-img-container-left">
+                    <img class="img-comfort" src="~/images/comfort/@Url.Content(Model.ElementAt(i).ImgLink)" />
+                </div>
+
+                <div class="comfort-content-container-left">
+                    <div class="comfort-content">
+                        <div class="comfort-title"><p>@Model.ElementAt(i).Header</p></div>
+                        <div class="comfort-text">
+                            <p>
+                                @Model.ElementAt(i).Content
+                            </p>
+                        </div>
+                        <div class="comfort-date-left">
+                            <!--<p>@Model.ElementAt(i).Date.Day.@zero@Model.ElementAt(i).Date.Month.@Model.ElementAt(i).Date.Year</p>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vertical-board-left">
+                </div>
+            </div>
+    }
+    else
+    {
+        <div class="comfort-container-right">
+
+            <div class="vertical-board-right">
+            </div>
+
+            <div class="comfort-content-container-right">
+                <div class="comfort-content">
+                    <div class="comfort-title"><p>@Model.ElementAt(i).Header</p></div>
+                    <div class="comfort-text">
+                        <p>
+                            @Model.ElementAt(i).Content
+                        </p>
+                    </div>
+                    <div class="comfort-date-right">
+                        <!--<p>@Model.ElementAt(i).Date.Day.@zero@Model.ElementAt(i).Date.Month.@Model.ElementAt(i).Date.Year</p>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="comfort-img-container-right">
+                <img class="img-comfort" src="~/images/comfort/@Url.Content(Model.ElementAt(i).ImgLink)" />
+            </div>
+        </div>
+}
+}
+
+
+    </div>
+</div>

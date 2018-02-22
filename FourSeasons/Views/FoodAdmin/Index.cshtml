@@ -1,0 +1,105 @@
+﻿@model List<Food>
+@{
+    ViewData["Title"] = "Питание";
+}
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/admin-food.css" />
+
+<div class="content">
+    <div class="content-admin-food">
+
+        <div class="food-add">
+            <p>Добавить позицию</p>
+            @using (Html.BeginForm("Add", "FoodAdmin", FormMethod.Post))
+            {
+                <input type="text" name="Name" placeholder="Название" id="addName"/><br />
+                <input type="text" name="Consist" placeholder="Состав (необязательное поле)" /><br />
+
+                <label class="listLabel" for="type">Родительская категория</label>
+                <select id="type" name="ParentId">
+                    <option value="0">Нет</option>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        if(Model.ElementAt(i).ParentId == 0)
+                        {
+                            <option value="@Model.ElementAt(i).Id">@Model.ElementAt(i).Name</option>
+                        }                        
+                    }
+                </select>
+                <input type="submit" value="Добавить" onclick="return validateText('addName')" />
+            }
+        </div>
+@for (int i = 0; i < Model.Count; i++)
+{            
+    @if (Model.ElementAt(i).ParentId == 0)
+    { 
+        <div class="food-container">
+            <div class="parent-food-container">
+
+                @using (Html.BeginForm("UpdateParent", "FoodAdmin", FormMethod.Post))
+                {
+                    @Html.HiddenFor(Model => Model.ElementAt(i).Id)<br />
+                    <input class="text-box single-line" id=@string.Format("name{0}", Model.ElementAt(i).Id.ToString()) name="Name" type="text" placeholder="Название позиции" value="@Model.ElementAt(i).Name" maxlength="80" /><br />
+
+                    <div class="food-upd-btn-container"><input type="submit" id="update-submit-parent" value="Сохранить изменения" onclick="return validateText('name' + '@Model.ElementAt(i).Id.ToString()');"/></div>
+                    <p> &#160 </p>
+                }
+
+                @using (Html.BeginForm("DeleteParent", "FoodAdmin", FormMethod.Post))
+                {
+                    @Html.HiddenFor(Model => Model.ElementAt(i).Id)
+                    <div class="food-del-btn-container"><input type="submit" id="delete-submit-parent" value="X" onclick="return confirm('Вы уверены?') ? true : false;"/></div>
+                }
+                @for (int j = 0; j < Model.Count; j++)
+                {
+                    if (Model.ElementAt(j).ParentId == Model.ElementAt(i).Id)
+                    {
+                        <div class="child-container">
+                            <form asp-controller="FoodAdmin" asp-action="UpdateChild" method="post" role="form">
+
+                                @Html.HiddenFor(Model => Model.ElementAt(j).Id)<br />
+                                <input class="text-box single-line" id=@string.Format("name{0}", Model.ElementAt(j).Id.ToString()) name="Name" type="text" placeholder="Название позиции" value="@Model.ElementAt(j).Name" maxlength="80" /><br />
+                                <input class="text-box single-line" id=@string.Format("consist{0}", Model.ElementAt(j).Id.ToString()) name="Consist" placeholder="Состав (необязательное поле)" value="@Model.ElementAt(j).Consist" type="text" maxlength="150"><br />
+
+                                <select id="type" name="ParentId">
+                                    <option value="0">Нет</option>
+                                    @for (int k = 0; k < Model.Count; k++)
+                                    {
+                                        if (Model.ElementAt(k).ParentId == 0)
+                                        {
+                                            if (Model.ElementAt(i).Id == Model.ElementAt(k).Id)
+                                            {
+                                                <option value="@Model.ElementAt(k).Id" selected="selected">@Model.ElementAt(k).Name</option> 
+                                            }
+                                            else
+                                            {
+                                                <option value="@Model.ElementAt(k).Id">@Model.ElementAt(k).Name</option>}
+                                            }
+                                    }
+                                    </select>
+
+                                    <div class="food-upd-btn-container"><input type="submit" id="update-submit-child" value="Сохранить"  onclick="return validateText('name' + '@Model.ElementAt(j).Id.ToString()');"/></div>
+                                    <p>&#160</p>
+
+                            </form>
+
+                            @using (Html.BeginForm("DeleteChild", "FoodAdmin", FormMethod.Post))
+                            {
+                                @Html.HiddenFor(Model => Model.ElementAt(j).Id)
+                                <div class="food-del-btn-container"><input type="submit" id="delete-submit-child" value="X" onclick="return confirm('Вы уверены?') ? true : false;" /></div>
+                            }
+                        </div>
+                    }
+                }
+               
+            </div>  
+        </div>
+    }                        
+}
+
+       
+    </div>
+</div>

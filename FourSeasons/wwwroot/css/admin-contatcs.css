@@ -1,0 +1,35 @@
+﻿.content-admin-contatcs {
+    width: inherit;
+}
+
+.contatcs-container {
+    margin: 50px 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: #d9d5d5;
+    position: relative;
+}
+
+.contatcs-container > form > p {
+    margin: 10px 10px;
+}
+    .contatcs-container > form > input {
+        margin: 5px 20px;
+        width: 90%;
+    }
+
+
+.contatcs-upd-btn-container > input[type=submit] {
+    width: 20%;
+    margin-left: 678px;
+    height: 30px;
+}
+
+
+.contatcs-upd-btn-container {
+    position: absolute;
+    bottom: 10px;
+    right: 87px;
+}
+

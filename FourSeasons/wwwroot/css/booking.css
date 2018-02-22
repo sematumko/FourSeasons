@@ -1,0 +1,91 @@
+﻿.content-booking {
+    width: inherit;
+}
+
+.form-wrapper > form > p {
+    color: #ffffff;
+    text-align: center;
+    font-size: 24px;
+}
+
+.form-wrapper {
+    padding: 20px 20px;
+}
+.booking-container {
+    margin: 50px 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    background-color: #349D52;
+    position: relative;
+    height: 220px;
+}
+
+.form-wrapper > form > input {
+    margin: 5px 5px;
+    width: 45%;
+    height: 30px;
+}
+
+.form-wrapper > form > select {
+    margin: 10px 5px;
+    width: 35%;
+    height: 30px;
+}
+
+.form-wrapper > form > input[type=date] {
+    margin: 0px 5px;
+    height: 30px;
+}
+
+.listLabel {
+    margin-left: 7px;
+}
+
+.checkLabel {
+    margin: 0px 10px;
+}
+
+.dateLabel {
+    margin: 10px 7px;
+}
+
+.booking-book-btn-container {
+    position: absolute;
+    right: 100px;
+    bottom: 25px;
+}
+
+.booking-book-btn-container > #delete-submit {
+    font-size: 16px;
+    height: 40px;
+}
+
+.booking-count-btn-container {
+    position: absolute;
+    bottom: 25px;
+    right: 260px;
+}
+
+
+.booking-count-btn-container > input[type=submit] {
+    font-size: 16px;
+    height: 40px;
+    
+}
+
+.price-container {
+    width: 30%;
+    height: 100px;
+    background-color: #349D52;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+.price-container {
+    text-align: center;
+    font-size: 32px;
+    color: #ffffff;
+    padding-top: 25px;
+}

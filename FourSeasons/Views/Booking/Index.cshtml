@@ -1,0 +1,86 @@
+﻿@model BookingVM
+@{
+    ViewData["Title"] = "Бронирование";
+}
+
+<link rel="stylesheet" href="~/css/booking.css" />
+<link rel="stylesheet" href="~/css/carousel.css" />
+
+
+<div class="content">
+    <div class="content-booking">
+
+        @{  string zeroDay = "";
+            string zeroMonth = "";
+            DateTime now = DateTime.Now; }
+
+            @if (now.Day < 10)
+            { zeroDay = "0"; }
+            else
+            { zeroDay = ""; }
+            @if (now.Month < 10)
+            { zeroMonth = "0"; }
+            else
+            { zeroMonth = ""; }
+        
+        @{  string zeroDayT = "";
+            string zeroMonthT = "";
+            DateTime tomorrow = now.AddDays(1); }
+
+            @if (tomorrow.Day < 10)
+            { zeroDayT = "0"; }
+            else
+            { zeroDayT = ""; }
+            @if (tomorrow.Month < 10)
+            { zeroMonthT = "0"; }
+            else
+            { zeroMonthT = ""; }
+
+        <div class="booking-container">
+            <div class="form-wrapper">
+
+                @using (Html.BeginForm("ChooseAction", "Booking", FormMethod.Post))
+            {
+                <p>Забронируйте или узнайте стоимость прямо сейчас</p>
+
+                <input type="text" placeholder="ФИО" name="_name" id="name"/>
+                <input type="text" placeholder="Телефон" name="_email" id="phone" />
+
+                <label class="listLabel" for="type">Тип номера</label>
+                <select id="type" name="Type">
+                    @for (int i = 0; i < Model.RoomList.Count; i++)
+                {
+                    <option value="@Model.RoomList.ElementAt(i).Type.ToString()">@Model.RoomList.ElementAt(i).Type</option>
+            }
+                </select>
+
+                <label class="checkLabel" for="opt1"><input id="opt1" type="checkbox" name="SeaView" value="true"> Вид на море</label>
+                <label class="checkLabel" for="opt2"><input id="opt2" type="checkbox" name="Balcon" value="true"> Балкон</label>
+                <label class="checkLabel" for="opt3"><input id="opt3" type="checkbox" name="Bar" value="true"> Мини-бар</label><br>
+
+                <label class="dateLabel" for="start">
+                    с   <input id="start" name="_startDate" type="date"
+                               min="@now.Year-@zeroMonth@now.Month-@zeroDay@now.Day" />
+                </label>
+                <label class="dateLabel" for="finish"> 
+                    до   <input id="finish" name="_finishDate" type="date" 
+                               min="@tomorrow.Year-@zeroMonthT@tomorrow.Month-@zeroDayT@tomorrow.Day"/></label>
+
+                <div class="booking-count-btn-container"><button type="submit" name="action" value="Book" onclick="return validateBooking('name', 'phone', 'start', 'finish') ? (confirm('Забронировать номер?') ? (alert('Номер успешно забронирован!')) : false) : (false);">Забронировать</button></div>
+                <p>&#160</p>
+                <div class="booking-book-btn-container"><button type="submit" name="action" value="getCost" onclick="return validateDates('start', 'finish');">Узнать стоимость</button></div>
+        }
+      
+            </div>
+        </div>
+
+        @if(Model.TotalPrice != 0)
+        {
+        <div class="price-container">
+            <p>@Model.TotalPrice$</p>
+        </div>
+
+}
+
+    </div>
+</div>

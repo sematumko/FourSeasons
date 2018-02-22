@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FourSeasons</title>
+    <script type="text/javascript" src="~/js/validator.js"></script>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -24,19 +25,19 @@
             <div class="menu-container">
                 <div class="menu-hotelname-container">
                     <div class="menu-hotelname">
-                        <a asp-area="" asp-controller="Admin" asp-action="Index">Раздел администратора</a>
+                        <a asp-area="" asp-controller="Admin" asp-action="Index">Раздел aдминистратора</a>
                     </div>
                 </div>
 
-                <div class="menu-list-container">
+                <div class="menu-list-container-admin">
                     <ul class="menu-list">
                         <li><a asp-area="" asp-controller="NewsAdmin" asp-action="Index">Новости</a></li>
-                    </ul>
-                </div>
-
-                <div class="menu-list-container">
-                    <ul class="menu-list">
                         <li><a asp-area="" asp-controller="GalleryAdmin" asp-action="Index">Галерея</a></li>
+                        <li><a asp-area="" asp-controller="CommentsAdmin" asp-action="Index">Отзывы</a></li>
+                        <li><a asp-area="" asp-controller="ContactsAdmin" asp-action="Index">Контакты</a></li>
+                        <li><a asp-area="" asp-controller="BookingAdmin" asp-action="Index">Бронирование</a></li>
+                        <li><a asp-area="" asp-controller="FoodAdmin" asp-action="Index">Питание</a></li>
+                        <li><a asp-area="" asp-controller="ComfortAdmin" asp-action="Index">Услуги и удобства</a></li>
                     </ul>
                 </div>
             </div>

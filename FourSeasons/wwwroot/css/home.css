@@ -48,6 +48,11 @@
     right: 0;
 }
 
+.img-news {
+    width: 350px;
+    height: 200px;
+}
+
 .news-content-container-left, .news-content-container-right {
     height: inherit;
     width: 640px;
@@ -151,3 +156,4 @@
     font-size: 28px;
     color: #ffffff;
 }
+

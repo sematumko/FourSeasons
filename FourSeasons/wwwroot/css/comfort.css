@@ -1,0 +1,127 @@
+﻿.content-comfort {
+    height: auto;
+    width: 1128px;
+    margin: 50px 36px;
+    position: relative;
+}
+
+.comfort-container-left, .comfort-container-right {
+    height: 200px;
+    width: 1000px;
+    margin: 80px 0;
+    position: relative;
+}
+
+.comfort-container-right {
+    margin-left: 128px;
+}
+
+.vertical-board-right, .vertical-board-left {
+    height: inherit;
+    width: 10px;
+    position: absolute;
+    top: 0;
+}
+
+.vertical-board-right {
+    left: 0;
+    background-color: #349D52;
+}
+
+.vertical-board-left {
+    right: 0;
+    background-color: #e6e2df;
+}
+
+.comfort-img-container-right, .comfort-img-container-left {
+    height: inherit;
+    width: 350px;
+}
+
+.comfort-img-container-left {
+    float: left;
+}
+
+.comfort-img-container-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.comfort-content-container-left, .comfort-content-container-right {
+    height: inherit;
+    width: 640px;
+    position: relative;
+}
+
+.comfort-content-container-left {
+    margin: 0 350px;
+    background-color: #349D52; 
+}
+
+.comfort-content-container-right {
+    float: left;
+    margin: 0 10px;
+    background-color: #e6e2df;
+}
+
+.comfort-content {
+    position: absolute;
+    height: 90%;
+    width: 94%;
+    top: 5%;
+    left: 3%;
+}
+
+.comfort-title p {
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333333;
+    font-size: 18px;
+}
+
+.comfort-text p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.comfort-content-container-left > .comfort-content > .comfort-text > p,
+.comfort-content-container-left > .comfort-content > .comfort-title > p {
+    color: #ffffff;
+}
+
+.comfort-content-container-right > .comfort-content > .comfort-text > p,
+.comfort-content-container-right > .comfort-content > .comfort-title > p {
+    color: #333333;
+}
+
+.comfort-date-left, .comfort-date-right {
+    position: absolute;
+    top: 0px;
+    font-size: 12px;
+}
+
+.comfort-date-left {
+    right: 0px;
+    color: #ffffff;
+}
+
+.comfort-date-right {
+    left: 0px;
+    color: #333333;
+}
+
+.comfort-title {
+    width: 100%;
+}
+
+.comfort-title > p {
+        text-align: center;
+        font-size: 28px;
+        color: #ffffff;
+}
+
+.img-comfort {
+    width: 350px;
+    height: 200px;
+}

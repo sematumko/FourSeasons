@@ -1,0 +1,47 @@
+﻿@model List<Booking>
+@{
+    ViewData["Title"] = "Заявки на бронирование";
+}
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/admin-booking.css" />
+
+<div class="content">
+    <div class="content-admin-booking">
+
+        <div class="booking-title">
+            <p>Заявки на бронирование</p>
+        </div>
+
+        @for (int i = Model.Count - 1; i >= 0; i--)
+        {
+             
+                string seaView, balcon, bar = "";
+                @if (@Model.ElementAt(i).SeaView == true) { seaView = "Да"; } else { seaView = "Нет"; }
+                @if (@Model.ElementAt(i).Balcon == true) { balcon = "Да"; } else { balcon = "Нет"; }
+                @if (@Model.ElementAt(i).Bar == true) { bar = "Да"; } else { bar = "Нет"; }
+            
+            <div class="booking-container">
+
+                <p>Имя: @Model.ElementAt(i).Name</p>
+                <p>Телефон: @Model.ElementAt(i).Email</p>
+                <p>Тип номера: @Model.ElementAt(i).Type</p>
+                <p>
+                    С&#160 @Model.ElementAt(i).StartDate.Day.@Model.ElementAt(i).StartDate.Month.@Model.ElementAt(i).StartDate.Year
+                    По&#160 @Model.ElementAt(i).FinishDate.Day.@Model.ElementAt(i).FinishDate.Month.@Model.ElementAt(i).FinishDate.Year
+                </p>
+                <p>Вид на море: @seaView &#160 &#160 &#160 &#160 Балкон: @balcon &#160 &#160 &#160 &#160 Бар: @bar</p>
+                <p>Стоимость: @Model.ElementAt(i).TotalPrice$</p>
+
+
+                @using (Html.BeginForm("Delete", "BookingAdmin", FormMethod.Post))
+                {
+                    @Html.HiddenFor(Model => Model.ElementAt(i).Id)
+                    <div class="booking-del-btn-container"><input type="submit" id="delete-submit" value="X" onclick="return confirm('Вы уверены?') ? true : false;" /></div>
+                }
+            </div>
+        }
+    </div>
+</div>

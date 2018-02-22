@@ -1,0 +1,108 @@
+﻿.content-admin-food {
+    width: inherit;
+}
+
+.food-container {
+    margin: 50px 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: #d9d5d5;
+    position: relative;
+}
+
+.food-container > form > input {
+    margin: 5px 20px;
+    width: 90%;
+}
+
+.food-container > form > input[type=submit] {
+    width: 20%;
+    margin-left: 775px;
+    margin-bottom: 0px;
+}
+
+
+.food-add {
+    margin: 50px 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #d9d5d5;
+    width: 50%;
+}
+
+.food-add > p {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 18px
+}
+
+.food-add > form > input {
+    margin: 5px 20px;
+    width: 90%;
+}
+
+.food-add > form > input[type=submit] {
+    width: 30%;
+    margin-left: 380px;
+    margin-bottom: 10px;
+}
+
+label {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.parent-food-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+}
+
+.parent-food-container > form > input {
+    width: 60%;
+}
+
+.food-del-btn-container > #delete-submit-parent {
+    position: absolute;
+    top: 20px;
+    left: 760px;
+}
+
+.food-upd-btn-container > #update-submit-parent {
+    position: absolute;
+    top: 20px;
+    left: 590px;
+}
+
+.child-container {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+   
+}
+
+.child-container > form > input {
+    width: 85%;
+    margin: 5px 0px;
+}
+
+.child-container > form > select 
+{
+    height: 25px;
+}
+
+.food-del-btn-container > #delete-submit-child {
+    position: absolute;
+    bottom: 19px;
+    left: 244px
+}
+
+.food-upd-btn-container > #update-submit-child {
+    position: absolute;
+    bottom: 19px;
+    left: 150px;
+}

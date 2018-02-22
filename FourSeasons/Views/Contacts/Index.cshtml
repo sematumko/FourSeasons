@@ -1,0 +1,47 @@
+﻿@model Contacts
+@{
+    ViewData["Title"] = "Контакты";
+}
+
+<link rel="stylesheet" href="~/css/contacts.css" />
+
+<div class="content">
+    <div class="content-contacts">
+
+
+        <div class="contacts-title">
+            <p>Контакты</p>
+        </div>
+
+        <div class="contacts-textmessage">
+            <p>Адрес: @Model.Address</p>
+            <p>Email: @Model.Email</p>
+            <p>Reception: @Model.ReceptionPhone</p>
+            <p>По вопросам сотрудничества: @Model.CollaborationPhone</p>
+            <br />
+
+            <p>Мы в социальных сетях:</p>
+            <p>VK: <a href="#">@Model.VKLink</a></p>
+            <p>Facebook: <a href="#">@Model.FaceBookLink</a></p>
+            <p>Instagram: <a href="#">@Model.InstagramLink</a></p>
+
+            <br />
+
+        </div>
+
+
+        <div class="map">
+            <a name="map" id="map"></a>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2761.1596578763806!2d6.144649069762646!3d46.20727883900247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c652843a9f2a1%3A0xcabbeb63c4ada12f!2sFour+Seasons!5e0!3m2!1sru!2s!4v1519126415653" width="960" height="700" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <br />            <br />
+
+            <p>Для того, чтобы добраться до FourSeasons на личном автомобиле, используйте координаты для навигатора:<br />44°23′51″N (44.397627)<br />33°56′24″E (33.940114)</p><br />
+            <p>Также вы можете прокатиться по самому длинному троллейбусному маршруту в мире: поездка из Симферополя в Ялту длиной 86 км займет около 4 часов.</p>
+        </div>
+
+
+
+
+
+    </div>
+</div>

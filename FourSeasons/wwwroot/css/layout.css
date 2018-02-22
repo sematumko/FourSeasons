@@ -21,3 +21,15 @@ body {
     width: inherit;
     position: relative;
 }
+
+footer {
+    background-color: #349D52;
+    min-height: 50px;
+    margin-top: 50px;
+}
+
+footer > p {
+    color: #ffffff;
+    text-align: center;
+    padding-top: 15px;
+}

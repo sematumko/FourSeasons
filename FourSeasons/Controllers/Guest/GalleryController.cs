@@ -29,6 +29,8 @@ namespace FourSeasons.Controllers.Guest
             foreach (GalleryPhoto element in _context.GallerySet)
                 galleryList.Add(element);
 
+              galleryList.Reverse();
+
             return galleryList;
         }
     }

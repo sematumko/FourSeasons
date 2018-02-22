@@ -1,0 +1,39 @@
+﻿@model Contacts
+@{
+    ViewData["Title"] = "Контакты";
+}
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/admin-contatcs.css" />
+
+<div class="content">
+    <div class="content-admin-contatcs">
+
+       
+
+      
+            <div class="contatcs-container">
+
+                @using (Html.BeginForm("Update", "ContactsAdmin", FormMethod.Post))
+                {
+                    @Html.HiddenFor(Model => Model.Id)<br />
+                    <p>Адрес</p> @Html.EditorFor(Model => Model.Address) <br />
+                    <p>Email</p> @Html.EditorFor(Model => Model.Email) <br />
+
+                    <p>Reception </p> @Html.EditorFor(Model => Model.ReceptionPhone)<br />
+                    <p>Телефон для сотрудничества </p>@Html.EditorFor(Model => Model.CollaborationPhone)<br />
+                    <p>VK </p>@Html.EditorFor(Model => Model.VKLink)<br />
+                    <p>Facebook</p>@Html.EditorFor(Model => Model.FaceBookLink)<br />
+                    <p>Instagram</p>@Html.EditorFor(Model => Model.InstagramLink)<br /><br />
+
+                    <div class="contatcs-upd-btn-container"><input type="submit" value="Сохранить изменения" onclick="return validateContacts('Address', 'Email', 'ReceptionPhone', 'CollaborationPhone', 'VKLink', 'FaceBookLink', 'InstagramLink')" /></div>
+                    <p>&#160</p>
+                }
+
+              
+            </div>
+        
+    </div>
+</div>

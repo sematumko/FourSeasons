@@ -4,7 +4,17 @@
         width: 1200px;
 }
 
+.carousel-rooms {
+    width: 100%;
+    height: 500px;
+}
+
 .carousel-caption p {
     font-size: 32px;
     line-height: 1.4;
+}
+
+#roomId {
+    height: 359px;
+    width: 756px;
 }

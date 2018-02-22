@@ -14,9 +14,9 @@
             <p>Добавить изображение</p>
             @using (Html.BeginForm("Add", "GalleryAdmin", FormMethod.Post))
             {
-                <input type="text" name="_imgLink" placeholder="Полное название файла изображения" /><br />
+                <input id="imgLink" type="text" name="_imgLink" placeholder="Полное название файла изображения" /><br />
 
-            <input type="submit" value="Добавить" />
+                <input type="submit" value="Добавить" onclick="return validateImage('imgLink');"/>
             }
         </div>
 
@@ -36,9 +36,9 @@
                                 <div class="gallery-container">
                                     @using (Html.BeginForm("Delete", "GalleryAdmin", FormMethod.Post))
                                     {
-                                        <img src="@Url.Content(Model.ElementAt(i + j).ImgLink)" /><br />
+                                        <img src="~/images/gallery/@Url.Content(Model.ElementAt(i + j).ImgLink)" /><br />
                                         @Html.HiddenFor(Model => Model.ElementAt(i + j).Id)
-                                        <div class="gallery-del-btn-container"><input type="submit" id="delete-submit" value="X" /></div>
+                                        <div class="gallery-del-btn-container"><input type="submit" id="delete-submit" value="X" onclick="return confirm('Вы уверены?') ? true : false;" /></div>
                                     }
                                 </div>
                             </td>

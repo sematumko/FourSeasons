@@ -44,7 +44,7 @@ namespace FourSeasons.Controllers.Admin
         [HttpPost]
         public ActionResult Add(string _header, string _content, string _imgLink)
         {           
-            _context.NewsSet.Add(new News { Header = _header, Content = _content, ImgLink = "~/images/news/" + _imgLink, Date = DateTime.Now});
+            _context.NewsSet.Add(new News { Header = _header, Content = _content, ImgLink = _imgLink, Date = DateTime.Now});
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

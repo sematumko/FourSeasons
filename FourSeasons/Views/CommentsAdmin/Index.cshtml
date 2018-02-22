@@ -15,8 +15,8 @@
             <p>Добавить отзыв</p>
             @using (Html.BeginForm("Create", "CommentsAdmin", FormMethod.Post))
             {            
-                <textarea name="_text" placeholder="Текст"></textarea><br />
-                <input type="submit" value="Добавить" />
+                <textarea name="_text" placeholder="Текст" id="textarea"></textarea><br />
+                <input type="submit" value="Добавить" onclick="return validateTextArea('textarea');"/>
             }
         </div>
 
@@ -30,13 +30,15 @@
             <p>Текст: @Model.ElementAt(i).Text</p>
             <p>Дата: @Model.ElementAt(i).Date</p>
 
+        
 
 
 
-            @using (Html.BeginForm("Delete", "CommentsAdmin", FormMethod.Post))
-    {
-        @Html.HiddenFor(Model => Model.ElementAt(i).Id)
-        <div class="comments-del-btn-container"><input type="submit" id="delete-submit" value="X" /></div>
+
+                @using (Html.BeginForm("Delete", "CommentsAdmin", FormMethod.Post))
+        {
+            @Html.HiddenFor(Model => Model.ElementAt(i).Id)
+            <div class="comments-del-btn-container"><input type="submit" id="delete-submit" value="X" onclick="return confirm('Вы уверены?') ? true : false;"/></div>
 }
         </div>
         }

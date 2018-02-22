@@ -16,36 +16,36 @@
             @using (Html.BeginForm("Add", "NewsAdmin", FormMethod.Post))
             {
                 
-                <input type="text" name="_header" placeholder="Заголовок" /><br />
-                <textarea name="_content" placeholder="Текст"></textarea><br />
-                <input type="text" name="_imgLink" placeholder="Полное название файла изображения"/><br />
+                <input type="text" name="_header" placeholder="Заголовок" id="name" maxlength="45"/><br />
+                <textarea name="_content" placeholder="Текст (не более 500 символов)" id="textarea" maxlength="500"></textarea><br />
+                <input type="text" name="_imgLink" placeholder="Полное название файла изображения" id="image"/><br />
 
-                <input type="submit" value="Добавить" />
+                <input type="submit" value="Добавить" onclick="return validateAddNewsForm('name', 'textarea', 'image');"/>
             }
         </div>
         
 
-        @for (int i = 0; i < Model.Count; i++)
+        @for (int i = Model.Count - 1; i >= 0; i--)
         {
             <div class="news-container">
 
                 @using (Html.BeginForm("Update", "NewsAdmin", FormMethod.Post))
                 {
                     @Html.HiddenFor(Model => Model.ElementAt(i).Id)<br />
-                    @Html.EditorFor(Model => Model.ElementAt(i).Header)<br />
-                 
-                    @Html.EditorFor(Model => Model.ElementAt(i).Content)<br />
-                    @Html.EditorFor(Model => Model.ElementAt(i).ImgLink)<br />
+                    <input class="text-box single-line" id=@string.Format("name{0}", Model.ElementAt(i).Id.ToString()) name="Header" type="text" placeholder="Заголовок" value="@Model.ElementAt(i).Header" maxlength="45"/><br />
+                    <textarea class="text-box multi-line" id=@string.Format("textarea{0}", Model.ElementAt(i).Id.ToString()) name="Content" placeholder="Текст (не более 500 символов)" maxlength="500">@Model.ElementAt(i).Content</textarea><br />
+                    <input class="text-box single-line" id=@string.Format("image{0}", Model.ElementAt(i).Id.ToString()) name="ImgLink" placeholder="Полное название файла изображения" value="@Model.ElementAt(i).ImgLink" type="text"><br />
                     @Html.HiddenFor(Model => Model.ElementAt(i).Date)<br />
 
-                    <div class="news-upd-btn-container"><input type="submit" value="Сохранить изменения" /></div>
+                            
+                    <div class="news-upd-btn-container"><input type="submit" value="Сохранить изменения" onclick="return validateAddNewsForm('name' + '@Model.ElementAt(i).Id.ToString()', 'textarea' + '@Model.ElementAt(i).Id.ToString()', 'image' + '@Model.ElementAt(i).Id.ToString()');"/></div>
                     <p>&#160</p>
                 }
 
                 @using (Html.BeginForm("Delete", "NewsAdmin", FormMethod.Post))
                 {
                     @Html.HiddenFor(Model => Model.ElementAt(i).Id)
-                    <div class="news-del-btn-container"><input type="submit" id="delete-submit" value="X" /></div>
+                    <div class="news-del-btn-container"><input type="submit" id="delete-submit" value="X" onclick="return confirm('Вы уверены?') ? true : false;"/></div>
                 }
             </div>
         }

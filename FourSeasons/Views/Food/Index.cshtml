@@ -1,0 +1,52 @@
+﻿@model List<Food>
+@{
+    ViewData["Title"] = "Питание";
+}
+
+<link rel="stylesheet" href="~/css/food.css" />
+
+<div class="content">
+    <div class="content-food">
+
+        <div class="food-title">
+            <p>Меню</p>
+        </div>
+
+       
+
+        <div class="food-list-container">
+            @for(int i = 0; i < Model.Count; i++)
+            {
+                if(Model.ElementAt(i).ParentId == 0)
+                {
+                    <div class="category-container">
+                        <div class="parent">
+                            <p>@Model.ElementAt(i).Name</p>
+                        </div>
+
+                        <div class="child">
+                        @for(int j = 0; j < Model.Count; j++)
+                        {
+                            if(Model.ElementAt(j).ParentId == Model.ElementAt(i).Id)
+                            {
+                                <p>@Model.ElementAt(j).Name</p>
+                                <div class="consist"><p>@Model.ElementAt(j).Consist</p></div>
+
+                            }
+
+                        }
+                        </div>
+                    </div>
+
+
+                }
+
+            }
+
+
+        </div>
+
+
+
+    </div>
+</div>

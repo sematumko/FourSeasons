@@ -36,7 +36,7 @@ namespace FourSeasons.Controllers.Admin
         [HttpPost]
         public ActionResult Add(string _imgLink)
         {
-            _context.GallerySet.Add(new GalleryPhoto { ImgLink = "~/images/gallery/" + _imgLink });
+            _context.GallerySet.Add(new GalleryPhoto { ImgLink =  _imgLink });
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -47,6 +47,8 @@ namespace FourSeasons.Controllers.Admin
 
             foreach (GalleryPhoto element in _context.GallerySet)
                 galleryList.Add(element);
+
+            galleryList.Reverse();
 
             return galleryList;
         }

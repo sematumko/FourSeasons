@@ -1,0 +1,42 @@
+﻿.content-admin-booking {
+    width: inherit;
+}
+
+.booking-container {
+    margin: 50px 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: #d9d5d5;
+    position: relative;
+}
+
+.comments-container > form > input[type=submit] {
+        width: 20%;
+        margin-left: 775px;
+        margin-bottom: 0px;
+}
+
+.booking-del-btn-container {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.booking-del-btn-container > #delete-submit {
+        color: #d12121;
+        font-size: 16px;
+}
+
+
+.booking-title {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.booking-title > p {
+     text-align: center;
+     font-size: 28px;
+     color: #ffffff;
+}

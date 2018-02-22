@@ -18,18 +18,18 @@
 
         @{ string zero = ""; }
 
-        @for (int i = 0; i < Model.Count; i++)
+        @for (int i = Model.Count - 1; i >= 0; i--)
         {
-        if (Model.ElementAt(i).Date.Month < 10)
-        { zero = "0"; }
-        else
-        { zero = ""; }
+            if (Model.ElementAt(i).Date.Month < 10)
+            { zero = "0"; }
+            else
+            { zero = ""; }
 
-        if (i % 2 == 0)
-        {
+            if (i % 2 != 0)
+            {
             <div class="news-container-left">
                 <div class="news-img-container-left">
-                    <img src="@Url.Content(Model.ElementAt(i).ImgLink)" />
+                    <img class="img-news" src="~/images/news/@Url.Content(Model.ElementAt(i).ImgLink)" />
                 </div>
 
                 <div class="news-content-container-left">
@@ -73,7 +73,7 @@
             </div>
 
             <div class="news-img-container-right">
-                <img src="@Url.Content(Model.ElementAt(i).ImgLink)" />
+                <img class="img-news" src="~/images/news/@Url.Content(Model.ElementAt(i).ImgLink)" />
             </div>
         </div>
 }

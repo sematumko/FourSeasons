@@ -38,6 +38,10 @@
     margin-left: 135px;
 }
 
+.menu-list-container-admin {
+    margin-left: 234px;
+}
+
 .menu-list {
     list-style-type: none;
     padding: 14px 15px;
@@ -56,4 +60,53 @@
 
 .menu-list > li a:hover {
     color: #333333;
+}
+
+ul {
+    display: block;
+}
+
+    ul:after {
+        display: block;
+        content: ' ';
+        clear: both;
+        float: none;
+    }
+    ul.submenu, ul.submenu1 {
+        display: none;
+        position: absolute;
+        width: 170px;
+        left: 580px;
+        background-color: #349D52;
+        z-index: 2000;
+    }
+
+    ul.submenu1 {
+        left: 670px;
+        width: 180px;
+    }
+ul.submenu > li,
+ul.submenu1 > li{
+    display: block;
+    margin: 20px 0px;
+    margin-left: -30px;
+}
+
+ul.submenu > li > a,
+ul.submenu1 > li > a
+{
+    display: block;
+    color: white;
+    background-color: #349D52;
+    text-decoration: none;
+}
+
+ul.submenu > li > a:hover,
+ul.submenu1 > li > a:hover {
+    text-decoration: none;
+}
+    
+ul.menu-list > li:hover > ul.submenu,
+ul.menu-list > li:hover > ul.submenu1 {
+        display: block;
 }
